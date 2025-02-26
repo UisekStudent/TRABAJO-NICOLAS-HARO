@@ -50,7 +50,7 @@ body {
 
 /* Título */
 h1 {
-    color: #0288d1;
+    color: #20e00e;
     font-size: 2rem;
     margin-bottom: 10px;
     font-weight: 700;
@@ -109,7 +109,7 @@ form {
 
 label {
     font-size: 1rem;
-    color: #0277bd;
+    color: #20e00e;
     margin-top: 10px;
     font-weight: bold;
 }
@@ -126,7 +126,7 @@ input {
 }
 
 input:focus {
-    border-color: #0288d1;
+    border-color: #20e00e;
     box-shadow: 0px 0px 8px rgba(2, 136, 209, 0.5);
 }
 
@@ -144,17 +144,17 @@ button {
 }
 
 button:first-of-type {
-    background: #0288d1;
+    background: #20e00e;
     color: white;
 }
 
 button:first-of-type:hover {
-    background: #0277bd;
+    background: #20e00e;
 }
 
 button:last-of-type {
     background: #b3e5fc;
-    color: #0277bd;
+    color: #20e00e;
 }
 
 button:last-of-type:hover {

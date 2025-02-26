@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router'; // ✅ Importa el Router
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -17,7 +18,7 @@ export class InicioSesionComponent implements OnInit {
     pass: new FormControl(),
   });
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: AngularFirestore, private router: Router) { // ✅ Agrega Router aquí
     this.items = this.firestore.collection('InicioSesion').valueChanges();
     this.items.subscribe((data) => {
       console.log("Datos en Firestore:", data);
@@ -28,13 +29,13 @@ export class InicioSesionComponent implements OnInit {
 
   // 📌 REGISTRAR USUARIO
   registrarUsuario() {
-    const nuevoUsuario = this.form.value; // Captura los datos del formulario
+    const nuevoUsuario = this.form.value;
 
     this.firestore.collection('InicioSesion').add(nuevoUsuario)
       .then(() => {
         console.log('✅ Usuario registrado en Firestore');
         alert('Usuario registrado correctamente');
-        this.form.reset(); // Limpia el formulario
+        this.form.reset();
       })
       .catch(error => {
         console.error('❌ Error al registrar usuario:', error);
@@ -50,10 +51,14 @@ export class InicioSesionComponent implements OnInit {
       .valueChanges()
       .subscribe(usuarios => {
         if (usuarios.length > 0) {
-          const usuario = usuarios[0] as any; // Convertimos el resultado a tipo objeto
+          const usuario = usuarios[0] as any;
           if (usuario.pass === pass) {
             console.log('✅ Inicio de sesión exitoso');
             alert('Inicio de sesión exitoso');
+            
+            // 🔥 Redirige a Gestor de Gastos
+            this.router.navigate(['/gestor-gastos']); 
+            
           } else {
             console.log('❌ Contraseña incorrecta');
             alert('Contraseña incorrecta');

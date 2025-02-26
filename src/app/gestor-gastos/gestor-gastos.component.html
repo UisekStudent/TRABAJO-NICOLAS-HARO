@@ -1,0 +1,60 @@
+<div class="container">
+    <h2>Gestor de Gastos</h2>
+  
+    <!-- Categorías -->
+    <div>
+      <h3>Categorías</h3>
+      <input [(ngModel)]="nuevaCategoria" placeholder="Nueva categoría">
+      <button (click)="agregarCategoria()">Agregar</button>
+  
+      <ul>
+        <li *ngFor="let cat of categorias">
+          {{ cat }} 
+          <button (click)="eliminarCategoria(cat)">🗑</button>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Formulario de gastos -->
+    <div>
+      <h3>Nuevo Gasto</h3>
+      <input [(ngModel)]="nuevoGasto.nombre" placeholder="Nombre">
+      <input type="number" [(ngModel)]="nuevoGasto.cantidad" placeholder="Cantidad">
+      <select [(ngModel)]="nuevoGasto.categoria">
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+      <button (click)="agregarGasto()">Agregar Gasto</button>
+    </div>
+  
+    <!-- Filtros -->
+    <div>
+      <h3>Filtrar y Ordenar</h3>
+      <label>Filtrar por Categoría:</label>
+      <select [(ngModel)]="filtroCategoria">
+        <option value="">Todas</option>
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+  
+      <label>Ordenar por:</label>
+      <select [(ngModel)]="orden">
+        <option value="nombre">Nombre</option>
+        <option value="cantidad">Cantidad</option>
+      </select>
+    </div>
+  
+    <!-- Lista de gastos -->
+    <h3>Lista de Gastos</h3>
+    <ul>
+      <li *ngFor="let gasto of ordenarGastos(); let i = index">
+        {{ gasto.nombre }} - ${{ gasto.cantidad }} - {{ gasto.categoria }}
+        <button (click)="eliminarGasto(i)">🗑</button>
+      </li>
+    </ul>
+  
+    <!-- Totales -->
+    <h3>Total de Gastos: ${{ totalGastos }}</h3>
+    <div *ngFor="let cat of categorias">
+      <p>{{ cat }}: ${{ obtenerTotalPorCategoria(cat) }}</p>
+    </div>
+  </div>
+  
