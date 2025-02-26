@@ -1,0 +1,21 @@
+<div class="login">
+    <h1 style="margin-left: 1em; margin-top: 0.5em;">PROYECTO 2 NICOLAS HARO</h1>
+    <div class="main">
+        <div class="sec1">
+            <img src="https://uisek.edu.ec/wp-content/uploads/2024/01/logo-sek-2024-azul.png"
+                alt="PROYECTO 2 NICOLAS HARO">
+        </div>
+        <div class="sec2">
+            <form [formGroup]="form">
+                <label>Correo:</label>
+                <input type="email" formControlName="correo" placeholder="Ingresa tu correo">
+
+                <label>Contraseña:</label>
+                <input type="password" formControlName="pass" placeholder="Ingresa tu contraseña">
+
+                <button type="button" (click)="registrarUsuario()">Registrar</button>
+                <button type="button" (click)="iniciarSesion()">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+</div>

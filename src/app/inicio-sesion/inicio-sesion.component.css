@@ -1,0 +1,173 @@
+/* Estilos generales */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #b3e5fc);
+    /* Gradiente azul pastel */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+
+}
+
+/* Contenedor principal */
+/* Contenedor principal - Centrado total */
+.login {
+    width: 100%;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+
+    /** CENTRAR COMPLETAMENTE EN PANTALLA **/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+h1 {
+    color: #0288d1;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Contenedor principal */
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sección de la imagen */
+.sec1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec1 img {
+    max-width: 100%;
+    width: 80%;
+    border-radius: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animación flotante */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Sección del formulario */
+.sec2 {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    color: #0277bd;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #81d4fa;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #0288d1;
+    box-shadow: 0px 0px 8px rgba(2, 136, 209, 0.5);
+}
+
+/* Botones */
+button {
+    width: 90%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+button:first-of-type {
+    background: #0288d1;
+    color: white;
+}
+
+button:first-of-type:hover {
+    background: #0277bd;
+}
+
+button:last-of-type {
+    background: #b3e5fc;
+    color: #0277bd;
+}
+
+button:last-of-type:hover {
+    background: #81d4fa;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .sec1 img {
+        width: 60%;
+    }
+}
